@@ -5,53 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>江建佑｜金興福實業有限公司</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: sans-serif;
       background: linear-gradient(#005baa, #ffffff);
       color: #333;
-      padding: 20px;
-      max-width: 480px;
+      padding: 16px;
       margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+      max-width: 600px;
+      overflow-x: hidden;
     }
     .header {
       text-align: center;
       color: white;
       margin-bottom: 30px;
     }
-    .header h1 { margin: 0; }
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
     .header h2 {
       font-size: 1.1em;
       font-weight: normal;
     }
     .card-container {
-      perspective: 1000px;
-      margin-bottom: 20px;
-    }
+  perspective: 1000px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
     .card {
       width: 100%;
-      height: 260px;
+      height: 100%;
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.8s;
-      cursor: pointer;
     }
     .card:hover {
       transform: rotateY(180deg);
     }
     .card-face {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-    }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  background-size: contain; /* 原為 cover，改為 contain 可以避免裁切與爆版 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
     .card-front {
-      background: url("card-front.png") no-repeat center/cover;
+      background-image: url("card-front.png");
     }
     .card-back {
-      background: url("card-back.png") no-repeat center/cover;
+      background-image: url("card-back.png");
       transform: rotateY(180deg);
     }
     .section {
@@ -65,15 +78,25 @@
       text-decoration: none;
       color: #005baa;
       font-weight: bold;
+      word-break: break-word;
     }
     .section p {
       margin: 6px 0;
+      font-size: 1em;
     }
     .footer {
       text-align: center;
       font-size: 0.9em;
       color: #666;
       margin-top: 20px;
+    }
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.5em;
+      }
+      .card-container {
+        aspect-ratio: 4/3;
+      }
     }
   </style>
 </head>
