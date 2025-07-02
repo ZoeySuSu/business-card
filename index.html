@@ -46,9 +46,10 @@
       transform-style: preserve-3d;
       transition: transform 0.8s;
     }
-    .card:hover {
-      transform: rotateY(180deg);
-    }
+    .card:hover,
+.card.flipped {
+  transform: rotateY(180deg);
+}
     .card-face {
   position: absolute;
   width: 100%;
@@ -90,6 +91,7 @@
       color: #666;
       margin-top: 20px;
     }
+    
     @media (max-width: 480px) {
       .header h1 {
         font-size: 1.5em;
@@ -131,5 +133,14 @@
   <div class="footer">
     &copy; 2025 金興福實業有限公司 | 泓達電腦
   </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const card = document.querySelector(".card");
+    card.addEventListener("click", function () {
+      card.classList.toggle("flipped");
+    });
+  });
+</script>
 </body>
 </html>
