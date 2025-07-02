@@ -134,13 +134,16 @@
     &copy; 2025 金興福實業有限公司 | 泓達電腦
   </div>
 
-  <script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const card = document.querySelector(".card");
-    card.addEventListener("click", function () {
+    const container = document.querySelector(".card-container");
+
+    container.addEventListener("click", function () {
       card.classList.toggle("flipped");
     });
   });
 </script>
+
 </body>
 </html>
