@@ -64,7 +64,6 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  pointer-events: none; /* ⛳️ 重點：避免內層擋住點擊 */
 }
 
     .card-front {
@@ -162,10 +161,6 @@
       }
     });
   });
-
-  card.addEventListener("click", function () {
-  this.classList.toggle("flipped");
-});
 
 </script>
 
